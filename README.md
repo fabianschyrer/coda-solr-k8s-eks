@@ -40,16 +40,16 @@ If you want try a light configuration with 1 SolrCloud container and 1 Zookeeper
 
 * You need a Kubernetes Cluster - [Creating an Amazon EKS Cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html)
 
-    $ eksctl create cluster \
-    --name solr \
-    --version 1.16 \
-    --region ap-southeast-1 \
-    --nodegroup-name standard-workers \
-    --node-type t3.medium \
-    --nodes 4 \
-    --node-ami auto \
-    --nodes-min 1 \
-    --nodes-max 4 \
+    $ eksctl create cluster \\
+    --name solr \\
+    --version 1.16 \\
+    --region ap-southeast-1 \\
+    --nodegroup-name standard-workers \\
+    --node-type t3.medium \\
+    --nodes 4 \\
+    --node-ami auto \\
+    --nodes-min 1 \\
+    --nodes-max 4 \\
     --managed
 
 Now you can start your cluster:
