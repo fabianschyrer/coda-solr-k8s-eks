@@ -49,7 +49,8 @@ If you want try a light configuration with 1 SolrCloud container and 1 Zookeeper
     --nodes 4 \
     --node-ami auto \
     --nodes-min 1 \
-    --nodes-max 4
+    --nodes-max 4 \
+    --managed
 
 Now you can start your cluster:
 
