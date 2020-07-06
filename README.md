@@ -33,14 +33,23 @@ Note: Use CloudSolrClient in your Java client application only inside the Kubern
 
 If you want try a light configuration with 1 SolrCloud container and 1 Zookeeper container, start with:
 
-    git clone https://github.com/freedev/solrcloud-zookeeper-kubernetes.git
+    git clone https://github.com/fabianschyrer/coda-solr-k8s-eks.git
     cd solrcloud-zookeeper-kubernetes
 
 ## Amazon Elastic Kubernetes Service (Amazon EKS) quickstart
 
 * You need a Kubernetes Cluster - [Creating an Amazon EKS Cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html)
 
-    $ eksctl create cluster --name solr  --version 1.12 --nodegroup-name standard-workers --node-type t3.medium --nodes 4  --node-ami auto --nodes-min 1 --nodes-max 4
+    $ eksctl create cluster \
+    --name solr \
+    --version 1.16 \
+    --region ap-southeast-1 \
+    --nodegroup-name standard-workers \
+    --node-type t3.medium \
+    --nodes 4 \
+    --node-ami auto \
+    --nodes-min 1 \
+    --nodes-max 4
 
 Now you can start your cluster:
 
