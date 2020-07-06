@@ -15,5 +15,7 @@ kubectl create -f statefulsets/statefulset-solr-cluster.yml
 kubectl create -f services/service-solr-cluster.yml
 
 kubectl get pod
+
 kubectl get deployment
+
 kubectl get service
