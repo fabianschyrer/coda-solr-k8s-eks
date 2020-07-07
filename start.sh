@@ -10,8 +10,8 @@ kubectl create -f services/service-zookeeper-ensemble.yml
 
 sleep 15
 
-#kubectl create -f statefulsets/statefulset-solr.yml
-kubectl create -f statefulsets/statefulset-solr-cluster.yml
+kubectl create -f statefulsets/statefulset-solr.yml
+#kubectl create -f statefulsets/statefulset-solr-cluster.yml
 kubectl create -f services/service-solr-cluster.yml
 
 kubectl get pod
