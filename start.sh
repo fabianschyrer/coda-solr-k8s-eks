@@ -8,14 +8,12 @@ kubectl create -f statefulsets/statefulset-zookeeper.yml
 #kubectl create -f statefulsets/statefulset-zookeeper-ensemble.yml
 kubectl create -f services/service-zookeeper-ensemble.yml
 
-sleep 30
+sleep 15
 
 #kubectl create -f statefulsets/statefulset-solr.yml
 kubectl create -f statefulsets/statefulset-solr-cluster.yml
 kubectl create -f services/service-solr-cluster.yml
 
 kubectl get pod
-
 kubectl get deployment
-
 kubectl get service
