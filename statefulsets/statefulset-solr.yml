@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: solr
@@ -7,8 +7,7 @@ spec:
     matchLabels:
       app: solr-app # has to match .spec.template.metadata.labels
   serviceName: "solrcluster"
-  replicas: 2 # by default is 1
-#  replicas: 3 # by default is 1
+  replicas: 1 # by default is 1
   template:
     metadata:
       labels:
@@ -18,7 +17,7 @@ spec:
       restartPolicy: Always
       containers:
       - name: solr
-        image: solr:8.3.0
+        image: solr:8.1.1
         imagePullPolicy: IfNotPresent
         readinessProbe:
           tcpSocket:
@@ -52,12 +51,12 @@ spec:
           - name: SOLR_HOME
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrHome
           - name: ZK_HOST
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: zkHost
           - name: POD_HOST_NAME
             valueFrom:
@@ -68,12 +67,12 @@ spec:
           - name: SOLR_LOGS_DIR
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrLogsDir
           - name: SOLR_HEAP
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrHeap
       initContainers:
       - name: init-solr-data
@@ -86,7 +85,7 @@ spec:
           - name: SOLR_HOME
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrHome
         volumeMounts:
         - name: volsolr
@@ -101,7 +100,7 @@ spec:
           - name: SOLR_LOGS_DIR
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrLogsDir
         volumeMounts:
         - name: volsolr
@@ -117,7 +116,7 @@ spec:
           - name: SOLR_HOME
             valueFrom:
               configMapKeyRef:
-                name: solr-cluster-config
+                name: solr-config
                 key: solrHome
         volumeMounts:
         - name: volsolr
@@ -126,7 +125,6 @@ spec:
   - metadata:
       name: volsolr
     spec:
-      storageClassName: store-solrcluster
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:

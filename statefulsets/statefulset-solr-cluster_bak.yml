@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: solr
@@ -130,4 +130,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 100Gi
+          storage: 32Gi
